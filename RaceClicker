@@ -33,28 +33,28 @@ function otohediyetoplama()
     while _G.otohediyetoplama == true do
         local args = {[1] = 1}
         game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("PlaytimeGiftsService"):WaitForChild("RF"):WaitForChild("Claim"):InvokeServer(unpack(args))
-        wait(0.1)
+        time(0.1)
 		local args = {[1] = 2}
         game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("PlaytimeGiftsService"):WaitForChild("RF"):WaitForChild("Claim"):InvokeServer(unpack(args))
-		wait(0.1)
+		time(0.1)
 		local args = {[1] = 3}
         game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("PlaytimeGiftsService"):WaitForChild("RF"):WaitForChild("Claim"):InvokeServer(unpack(args))
-		wait(0.1)
+		time(0.1)
 		local args = {[1] = 4}
         game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("PlaytimeGiftsService"):WaitForChild("RF"):WaitForChild("Claim"):InvokeServer(unpack(args))
-		wait(0.1)
+		time(0.1)
 		local args = {[1] = 5}
         game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("PlaytimeGiftsService"):WaitForChild("RF"):WaitForChild("Claim"):InvokeServer(unpack(args))
-		wait(0.1)
+		time(0.1)
 		local args = {[1] = 6}
         game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("PlaytimeGiftsService"):WaitForChild("RF"):WaitForChild("Claim"):InvokeServer(unpack(args))
-		wait(0.1)
+		time(0.1)
 		local args = {[1] = 7}
         game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("PlaytimeGiftsService"):WaitForChild("RF"):WaitForChild("Claim"):InvokeServer(unpack(args))
-		wait(0.1)
+		time(0.1)
 		local args = {[1] = 8}
         game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("PlaytimeGiftsService"):WaitForChild("RF"):WaitForChild("Claim"):InvokeServer(unpack(args))
-		wait(0.1)
+		time(0.1)
     end
 end
 
@@ -74,7 +74,7 @@ otomatikTab:AddToggle({
 	Default = false,
 	Callback = function(Value)
 		_G.otohediyetoplama = Value
-        otohediyetoplama
+        otohediyetoplama()
 	end
 })
 OrionLib:Init()
