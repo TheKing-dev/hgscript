@@ -1,0 +1,40 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "HGA script | Race Clicker", HidePremium = false, SaveConfig = true, ConfigFolder = "HGA", IntroEnabled = true, IntroText = "Hoşgeldin dostum!"})
+
+
+
+--[tabs]--
+local farmTab = Window:MakeTab({
+	Name = "oto farm",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+
+
+--[Values]--
+
+_G.ototiklama = true
+
+
+--[Functions]--
+
+function ototiklama()
+    while _G.ototiklama == true do
+    game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("ClickService"):WaitForChild("RF"):WaitForChild("Click"):InvokeServer()
+    end
+end
+
+
+--[Togles]--
+
+farmTab:AddToggle({
+	Name = "Oto Tiklama",
+	Default = false,
+	Callback = function(Value)
+		_G.ototiklama = Value
+        ototiklama()
+	end
+})
+
+OrionLib:Init()
