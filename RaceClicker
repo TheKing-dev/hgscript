@@ -5,13 +5,13 @@ local Window = OrionLib:MakeWindow({Name = "HGA script | Race Clicker", HidePrem
 
 --[tabs]--
 local farmTab = Window:MakeTab({
-	Name = "oto farm",
+	Name = "Otomatik kasma",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
 
-local otomatikTab = Window:MakeTab({
-	Name = "Otomatik",
+local yumurtaTab = Window:MakeTab({
+	Name = "Yumurta",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
@@ -20,7 +20,8 @@ local otomatikTab = Window:MakeTab({
 
 _G.ototiklama = true
 _G.otohediyetoplama = true
-
+_G.otomatikacma = true
+_G.secilenyumurta = "Starter01"
 --[Functions]--
 
 function ototiklama()
@@ -58,10 +59,14 @@ function otohediyetoplama()
     end
 end
 
+function otoyumurta()
+	
+end
+
 --[Togles]--
 
 farmTab:AddToggle({
-	Name = "Oto Tiklama",
+	Name = "Otomatik Tiklama",
 	Default = false,
 	Callback = function(Value)
 		_G.ototiklama = Value
@@ -69,12 +74,32 @@ farmTab:AddToggle({
 	end
 })
 
-otomatikTab:AddToggle({
-	Name = "Oto Hediye Toplama",
+farmTab:AddToggle({
+	Name = "Otomatik Hediye Toplama",
 	Default = false,
 	Callback = function(Value)
 		_G.otohediyetoplama = Value
         otohediyetoplama()
 	end
 })
+
+yumurtaTab:AddToggle({
+	Name = "Otomatik Yumurta Açma",
+	Default = false,
+	Callback = function(Value)
+		_G.otohediyetoplama = Value
+        otohediyetoplama()
+	end
+})
+--drop down
+yumurtaTab:AddDropdown({
+	Name = "Yumurta Seç",
+	Default = "1",
+	Options = {"1", "2"},
+	Callback = function(Value)
+		print(Value)
+	end    
+})
+
+
 OrionLib:Init()
