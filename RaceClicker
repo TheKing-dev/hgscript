@@ -1,8 +1,6 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({Name = "HGA script | Race Clicker", HidePremium = false, SaveConfig = true, ConfigFolder = "HGA", IntroEnabled = true, IntroText = "Hoşgeldin dostum!"})
 
-
-
 --[tabs]--
 local farmTab = Window:MakeTab({
 	Name = "Otomatik kasma",
@@ -17,16 +15,16 @@ local yumurtaTab = Window:MakeTab({
 })
 
 --[Values]--
-
 _G.ototiklama = true
 _G.otohediyetoplama = true
 _G.otomatikacma = true
 _G.secilenyumurta = "Starter01"
---[Functions]--
 
+--[Functions]--
 function ototiklama()
     while _G.ototiklama == true do
-    game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("ClickService"):WaitForChild("RF"):WaitForChild("Click"):InvokeServer()
+        game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("ClickService"):WaitForChild("RF"):WaitForChild("Click"):InvokeServer()
+        wait(0.1)
     end
 end
 
@@ -34,37 +32,40 @@ function otohediyetoplama()
     while _G.otohediyetoplama == true do
         local args = {[1] = 1}
         game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("PlaytimeGiftsService"):WaitForChild("RF"):WaitForChild("Claim"):InvokeServer(unpack(args))
-        time(0.1)
-		local args = {[1] = 2}
+        wait(0.1)
+		args = {[1] = 2}
         game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("PlaytimeGiftsService"):WaitForChild("RF"):WaitForChild("Claim"):InvokeServer(unpack(args))
-		time(0.1)
-		local args = {[1] = 3}
+		wait(0.1)
+		args = {[1] = 3}
         game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("PlaytimeGiftsService"):WaitForChild("RF"):WaitForChild("Claim"):InvokeServer(unpack(args))
-		time(0.1)
-		local args = {[1] = 4}
+		wait(0.1)
+		args = {[1] = 4}
         game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("PlaytimeGiftsService"):WaitForChild("RF"):WaitForChild("Claim"):InvokeServer(unpack(args))
-		time(0.1)
-		local args = {[1] = 5}
+		wait(0.1)
+		args = {[1] = 5}
         game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("PlaytimeGiftsService"):WaitForChild("RF"):WaitForChild("Claim"):InvokeServer(unpack(args))
-		time(0.1)
-		local args = {[1] = 6}
+		wait(0.1)
+		args = {[1] = 6}
         game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("PlaytimeGiftsService"):WaitForChild("RF"):WaitForChild("Claim"):InvokeServer(unpack(args))
-		time(0.1)
-		local args = {[1] = 7}
+		wait(0.1)
+		args = {[1] = 7}
         game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("PlaytimeGiftsService"):WaitForChild("RF"):WaitForChild("Claim"):InvokeServer(unpack(args))
-		time(0.1)
-		local args = {[1] = 8}
+		wait(0.1)
+		args = {[1] = 8}
         game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("PlaytimeGiftsService"):WaitForChild("RF"):WaitForChild("Claim"):InvokeServer(unpack(args))
-		time(0.1)
+		wait(0.1)
     end
 end
 
 function otoyumurta()
-	
+    while _G.otomatikacma == true do
+        local args = {[1] = _G.secilenyumurta,[2] = "1",[3] = {}}
+        game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("EggService"):WaitForChild("RF"):WaitForChild("Open"):InvokeServer(unpack(args))
+        wait(0.1)  
+    end  
 end
 
---[Togles]--
-
+--[Toggles]--
 farmTab:AddToggle({
 	Name = "Otomatik Tiklama",
 	Default = false,
@@ -87,19 +88,19 @@ yumurtaTab:AddToggle({
 	Name = "Otomatik Yumurta Açma",
 	Default = false,
 	Callback = function(Value)
-		_G.otohediyetoplama = Value
-        otohediyetoplama()
+		_G.otomatikacma = Value
+        otoyumurta()
 	end
 })
---drop down
+
+-- Dropdown
 yumurtaTab:AddDropdown({
 	Name = "Yumurta Seç",
-	Default = "1",
-	Options = {"1", "2"},
+	Default = "Starter01",
+	Options = {"Starter01", "Starter02", "Starter03", "Starter04", "Starter05", "Starter06", "Starter07"},
 	Callback = function(Value)
-		print(Value)
+		_G.secilenyumurta = Value
 	end    
 })
-
 
 OrionLib:Init()
