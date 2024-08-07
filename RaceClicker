@@ -20,10 +20,12 @@ _G.otohediyetoplama = true
 _G.otomatikacma = true
 _G.secilenyumurta = "Starter01"
 _G.otoeniyipettakma = true
+_G.otomatikrebirth = true
 --[Functions]--
 function ototiklama()
     while _G.ototiklama == true do
         game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("ClickService"):WaitForChild("RF"):WaitForChild("Click"):InvokeServer()
+        wait(0.1)
     end
 end
 
@@ -71,6 +73,12 @@ function otoeniyipettakma()
 	end
 	
 end
+function otomatikrebirth()
+	while _G.otomatikrebirth == true do
+		game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("RebirthService"):WaitForChild("RF"):WaitForChild("Rebirth"):InvokeServer()
+		wait(0.1)
+	end
+end
 --[Toggles]--
 farmTab:AddToggle({
 	Name = "Otomatik Tiklama",
@@ -96,6 +104,15 @@ farmTab:AddToggle({
 	Callback = function(Value)
 		_G.otohediyetoplama = Value
         otohediyetoplama()
+	end
+})
+
+farmTab:AddToggle({
+	Name = "Otomatik Rebirth Atma",
+	Default = false,
+	Callback = function(Value)
+		_G.otomatikrebirth = Value
+        otomatikrebirth()
 	end
 })
 
