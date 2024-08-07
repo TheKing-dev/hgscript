@@ -1,17 +1,30 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "HGA script | ⚡ Race Clicker", HidePremium = false, SaveConfig = true, ConfigFolder = "HGA", IntroEnabled = true, IntroText = "Hoşgeldin dostum!"})
+local Window = OrionLib:MakeWindow({
+    Name = "HGA script | ⚡ Race Clicker",
+    HidePremium = false,
+    SaveConfig = true,
+    ConfigFolder = "HGA",
+    IntroEnabled = true,
+    IntroText = "Hoşgeldin dostum!"
+})
 
 --[tabs]--
 local farmTab = Window:MakeTab({
-	Name = "Otomatik kasma",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
+    Name = "Otomatik kasma",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
 })
 
 local yumurtaTab = Window:MakeTab({
-	Name = "Yumurta",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
+    Name = "Yumurta",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+local IsinlanmaTab = Window:MakeTab({
+    Name = "Işinlanma",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
 })
 
 --[Values]--
@@ -21,6 +34,7 @@ _G.otomatikacma = true
 _G.secilenyumurta = "Starter01"
 _G.otoeniyipettakma = true
 _G.otomatikrebirth = true
+
 --[Functions]--
 function ototiklama()
     while _G.ototiklama == true do
@@ -31,108 +45,123 @@ end
 
 function otohediyetoplama()
     while _G.otohediyetoplama == true do
-        local args = {[1] = 1}
-        game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("PlaytimeGiftsService"):WaitForChild("RF"):WaitForChild("Claim"):InvokeServer(unpack(args))
-        wait(0.1)
-		args = {[1] = 2}
-        game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("PlaytimeGiftsService"):WaitForChild("RF"):WaitForChild("Claim"):InvokeServer(unpack(args))
-		wait(0.1)
-		args = {[1] = 3}
-        game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("PlaytimeGiftsService"):WaitForChild("RF"):WaitForChild("Claim"):InvokeServer(unpack(args))
-		wait(0.1)
-		args = {[1] = 4}
-        game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("PlaytimeGiftsService"):WaitForChild("RF"):WaitForChild("Claim"):InvokeServer(unpack(args))
-		wait(0.1)
-		args = {[1] = 5}
-        game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("PlaytimeGiftsService"):WaitForChild("RF"):WaitForChild("Claim"):InvokeServer(unpack(args))
-		wait(0.1)
-		args = {[1] = 6}
-        game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("PlaytimeGiftsService"):WaitForChild("RF"):WaitForChild("Claim"):InvokeServer(unpack(args))
-		wait(0.1)
-		args = {[1] = 7}
-        game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("PlaytimeGiftsService"):WaitForChild("RF"):WaitForChild("Claim"):InvokeServer(unpack(args))
-		wait(0.1)
-		args = {[1] = 8}
-        game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("PlaytimeGiftsService"):WaitForChild("RF"):WaitForChild("Claim"):InvokeServer(unpack(args))
-		wait(0.1)
+        for i = 1, 8 do
+            local args = {i}
+            game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("PlaytimeGiftsService"):WaitForChild("RF"):WaitForChild("Claim"):InvokeServer(unpack(args))
+            wait(0.1)
+        end
     end
 end
 
 function otoyumurta()
     while _G.otomatikacma == true do
-        local args = {[1] = _G.secilenyumurta,[2] = "1",[3] = {}}
+        local args = {_G.secilenyumurta, "1", {}}
         game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("EggService"):WaitForChild("RF"):WaitForChild("Open"):InvokeServer(unpack(args))
-        wait(0.1)  
-    end  
+        wait(0.1)
+    end
 end
 
 function otoeniyipettakma()
-	while _G.otoeniyipettakma == true do
-		game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("PetsService"):WaitForChild("RF"):WaitForChild("EquipBest"):InvokeServer()
-		wait(0.1)
-	end
-	
+    while _G.otoeniyipettakma == true do
+        game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("PetsService"):WaitForChild("RF"):WaitForChild("EquipBest"):InvokeServer()
+        wait(0.1)
+    end
 end
+
 function otomatikrebirth()
-	while _G.otomatikrebirth == true do
-		game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("RebirthService"):WaitForChild("RF"):WaitForChild("Rebirth"):InvokeServer()
-		wait(0.1)
-	end
+    while _G.otomatikrebirth == true do
+        game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("RebirthService"):WaitForChild("RF"):WaitForChild("Rebirth"):InvokeServer()
+        wait(0.1)
+    end
 end
+
 --[Toggles]--
 farmTab:AddToggle({
-	Name = "Otomatik Tiklama",
-	Default = false,
-	Callback = function(Value)
-		_G.ototiklama = Value
+    Name = "Otomatik Tiklama",
+    Default = false,
+    Callback = function(Value)
+        _G.ototiklama = Value
         ototiklama()
-	end
+    end
 })
 
 farmTab:AddToggle({
-	Name = "Otomatik en iyi pet takma",
-	Default = false,
-	Callback = function(Value)
-		_G.otoeniyipettakma = Value
+    Name = "Otomatik en iyi pet takma",
+    Default = false,
+    Callback = function(Value)
+        _G.otoeniyipettakma = Value
         otoeniyipettakma()
-	end
+    end
 })
 
 farmTab:AddToggle({
-	Name = "Otomatik Hediye Toplama",
-	Default = false,
-	Callback = function(Value)
-		_G.otohediyetoplama = Value
+    Name = "Otomatik Hediye Toplama",
+    Default = false,
+    Callback = function(Value)
+        _G.otohediyetoplama = Value
         otohediyetoplama()
-	end
+    end
 })
 
 farmTab:AddToggle({
-	Name = "Otomatik Rebirth Atma",
-	Default = false,
-	Callback = function(Value)
-		_G.otomatikrebirth = Value
+    Name = "Otomatik Rebirth Atma",
+    Default = false,
+    Callback = function(Value)
+        _G.otomatikrebirth = Value
         otomatikrebirth()
-	end
+    end
 })
 
 yumurtaTab:AddToggle({
-	Name = "Otomatik Yumurta Açma",
-	Default = false,
-	Callback = function(Value)
-		_G.otomatikacma = Value
+    Name = "Otomatik Yumurta Açma",
+    Default = false,
+    Callback = function(Value)
+        _G.otomatikacma = Value
         otoyumurta()
-	end
+    end
 })
 
 -- Dropdown
 yumurtaTab:AddDropdown({
-	Name = "Yumurta Seç",
-	Default = "Starter01",
-	Options = {"Starter01", "Starter02", "Starter03", "Starter04", "Pro01", "Pro02", "Pro03"},
-	Callback = function(Value)
-		_G.secilenyumurta = Value
-	end    
+    Name = "Yumurta Seç",
+    Default = "Starter01",
+    Options = {"Starter01", "Starter02", "Starter03", "Starter04", "Pro01", "Pro02", "Pro03"},
+    Callback = function(Value)
+        _G.secilenyumurta = Value
+    end
+})
+
+-- Buttons
+IsinlanmaTab:AddButton({
+    Name = "başlangic",
+    Callback = function()
+        local args = {"Home", false}
+        game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("WorldService"):WaitForChild("RF"):WaitForChild("Travel"):InvokeServer(unpack(args))
+    end
+})
+
+IsinlanmaTab:AddButton({
+    Name = "Etkinlik",
+    Callback = function()
+        local args = {"Event", false}
+        game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("WorldService"):WaitForChild("RF"):WaitForChild("Travel"):InvokeServer(unpack(args))
+    end
+})
+
+IsinlanmaTab:AddButton({
+    Name = "Uzay",
+    Callback = function()
+        local args = {"Space", false}
+        game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("WorldService"):WaitForChild("RF"):WaitForChild("Travel"):InvokeServer(unpack(args))
+    end
+})
+
+IsinlanmaTab:AddButton({
+    Name = "Deniz",
+    Callback = function()
+        local args = {"Ocean", false}
+        game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("WorldService"):WaitForChild("RF"):WaitForChild("Travel"):InvokeServer(unpack(args))
+    end
 })
 
 OrionLib:Init()
