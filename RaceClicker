@@ -19,7 +19,7 @@ _G.ototiklama = true
 _G.otohediyetoplama = true
 _G.otomatikacma = true
 _G.secilenyumurta = "Starter01"
-
+_G.otoeniyipettakma = true
 --[Functions]--
 function ototiklama()
     while _G.ototiklama == true do
@@ -65,6 +65,13 @@ function otoyumurta()
     end  
 end
 
+function otoeniyipettakma()
+	while _G.otoeniyipettakma == true do
+		game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("PetsService"):WaitForChild("RF"):WaitForChild("EquipBest"):InvokeServer()
+		wait(0.1)
+	end
+	
+end
 --[Toggles]--
 farmTab:AddToggle({
 	Name = "Otomatik Tiklama",
@@ -72,6 +79,15 @@ farmTab:AddToggle({
 	Callback = function(Value)
 		_G.ototiklama = Value
         ototiklama()
+	end
+})
+
+farmTab:AddToggle({
+	Name = "Otomatik en iyi pet takma",
+	Default = false,
+	Callback = function(Value)
+		_G.otoeniyipettakma = Value
+        otoeniyipettakma()
 	end
 })
 
@@ -97,7 +113,7 @@ yumurtaTab:AddToggle({
 yumurtaTab:AddDropdown({
 	Name = "Yumurta Seç",
 	Default = "Starter01",
-	Options = {"Starter01", "Starter02", "Starter03", "Starter04", "Starter05", "Starter06", "Starter07"},
+	Options = {"Starter01", "Starter02", "Starter03", "Starter04", "Pro01", "Pro02", "Pro03"},
 	Callback = function(Value)
 		_G.secilenyumurta = Value
 	end    
