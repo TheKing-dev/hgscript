@@ -1,5 +1,5 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "HGA script | Race Clicker", HidePremium = false, SaveConfig = true, ConfigFolder = "HGA", IntroEnabled = true, IntroText = "Hoşgeldin dostum!"})
+local Window = OrionLib:MakeWindow({Name = "HGA script | ⚡ Race Clicker", HidePremium = false, SaveConfig = true, ConfigFolder = "HGA", IntroEnabled = true, IntroText = "Hoşgeldin dostum!"})
 
 --[tabs]--
 local farmTab = Window:MakeTab({
