@@ -24,7 +24,6 @@ _G.otoeniyipettakma = true
 function ototiklama()
     while _G.ototiklama == true do
         game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("ClickService"):WaitForChild("RF"):WaitForChild("Click"):InvokeServer()
-        wait(0.1)
     end
 end
 
